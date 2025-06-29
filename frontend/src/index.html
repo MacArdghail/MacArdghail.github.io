@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MacArdghail's personal portfolio showcasing experience and contact information."
+    />
+    <meta
+      name="keywords"
+      content="MacArdghail, Software Engineer, University of Galway, Portfolio"
+    />
+    <meta name="author" content="MacArdghail" />
+    <meta property="og:title" content="MacArdghail Portfolio" />
+    <meta
+      property="og:description"
+      content="Personal website of MacArdghail, Software Engineer and Computer Science graduate."
+    />
+    <title>MacArdghail</title>
+    <base href="/" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <style>
+      .bullet-journal-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #f8f8f8;
+        background-image: radial-gradient(#aaa 0.5px, transparent 0.5px);
+        background-size: 10px 10px;
+        background-repeat: repeat;
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        background-size: contain;
+      }
+
+      .bullet-journal-bg.dark-mode {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #121212;
+        background-image: radial-gradient(#aaa 0.5px, transparent 0.5px);
+        background-size: 10px 10px;
+        background-repeat: repeat;
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        background-size: contain;
+      }
+    </style>
+    <script>
+      try {
+        const dark = localStorage.getItem("darkMode") === "true";
+        if (dark) {
+          document.documentElement.classList.add("dark-mode");
+          document.body = document.body || {};
+          document.body.style = "background-color:#121212;color:#f8f8f8;";
+        }
+        document.documentElement.style.visibility = "hidden";
+      } catch (e) {}
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bullet-journal-bg">
+    <app-root></app-root>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        document.documentElement.style.visibility = "visible";
+      });
+    </script>
+  </body>
+</html>

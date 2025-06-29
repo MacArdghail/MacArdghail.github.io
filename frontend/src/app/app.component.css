@@ -1,0 +1,225 @@
+h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 3rem;
+  color: #121212;
+}
+
+h1.dark-mode {
+  color: #f8f8f8;
+}
+
+.surname {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-top: 3.4rem;
+  height: 6rem;
+  border-bottom: 1px solid black;
+  line-height: 2.4rem;
+}
+
+.dark-mode .header {
+  border-bottom: 1px solid #f8f8f8;
+}
+
+::ng-deep p-button > .p-button-text {
+  font-size: 1.6rem;
+}
+
+::ng-deep p-button > .p-button {
+  padding: 2px;
+}
+
+::ng-deep p-button > .p-button:not(:disabled):hover {
+  background-color: #f0ead6;
+  padding: 2px;
+}
+
+.dark-mode ::ng-deep p-button > .p-button:not(:disabled):hover {
+  background-color: grey;
+  padding: 2px;
+}
+
+::ng-deep p-button > .p-button-text:not(:disabled):hover {
+  color: black;
+}
+
+::ng-deep p-button > .p-button:focus-visible {
+  outline: 2px solid black;
+}
+
+.dark-mode ::ng-deep p-button > .p-button:focus-visible {
+  outline: 2px solid white;
+}
+
+.container {
+  width: 58rem;
+  max-width: 58rem;
+  padding: 0 4.8rem;
+  min-height: 100vh;
+}
+
+.bullet-journal-bg {
+  position: absolute;
+  background-color: #f8f8f8;
+  background-image: radial-gradient(#aaa 0.5px, transparent 0.5px);
+  background-size: 15px 15px;
+  z-index: 0;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-repeat: repeat;
+}
+
+h5 {
+  font-family: "Dancing Script", cursive;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+.bio {
+  display: flex;
+  margin-top: 3.6rem;
+  gap: 20px;
+}
+
+.icons {
+  padding-top: 1.2rem;
+}
+
+.footer {
+  padding: 4.8rem 0;
+}
+
+.bullet-journal-bg.dark-mode {
+  background-color: #121212;
+  color: #f8f8f8;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #f8f8f8;
+}
+
+p-button .p-button-text {
+  color: #f8f8f8;
+}
+
+.dark-mode .header,
+.dark-mode div,
+.dark-mode p,
+.dark-mode h1,
+.dark-mode h3,
+.dark-mode .surname {
+  color: #f8f8f8;
+}
+
+.footer-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+::ng-deep p-button > button.dark-mode {
+  color: wheat;
+}
+
+::ng-deep p-button > .p-button-text {
+  color: #333333;
+}
+
+.dark-mode ::ng-deep p-button > .p-button-text {
+  color: #f8f8f8;
+}
+
+.transcript {
+  color: #0277bd;
+  text-decoration: none;
+}
+
+.transcript:hover {
+  color: #0277bd;
+  text-decoration: underline;
+}
+
+.svgs {
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-height: 2rem;
+}
+
+.bio-text {
+  max-width: 34rem;
+}
+
+.polaroid {
+  display: inline-block;
+  text-align: center;
+  background-color: white;
+  padding: 4px;
+  max-height: 145px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: rotate(2deg);
+}
+
+.polaroid-caption {
+  margin: 0;
+  font-size: 1.2rem;
+  padding: 0;
+  color: #121212;
+}
+
+.photo {
+  width: 110px;
+  height: 110px;
+  /* object-fit: cover; */
+  /* display: block; */
+  margin: 0 auto 5px;
+}
+
+@media (max-width: 48.9rem) {
+  .bio-text {
+    max-width: 40rem;
+    font-size: 1.6rem;
+  }
+
+  .container {
+    padding: 0 3.2rem;
+  }
+
+  .btn-container {
+    gap: 0.5rem;
+  }
+
+  .sm-hide {
+    display: none;
+  }
+
+  .svgs {
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

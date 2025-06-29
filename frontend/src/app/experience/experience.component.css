@@ -1,0 +1,135 @@
+h3 {
+  font-size: 2.1rem;
+  margin-top: 4.2rem;
+}
+
+.work {
+  display: flex;
+  margin-top: 1.4rem;
+}
+
+.company-logo {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 0.4rem;
+}
+
+.company-logo.uni {
+  border-radius: 50%;
+}
+
+.job-info {
+  margin-left: 1.4rem;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.job-info.course2 {
+  margin-left: 2.2rem;
+}
+
+.sub-heading {
+  font-size: 1.4rem;
+  margin-top: 0.2rem;
+}
+
+.sub-heading.grey {
+  color: #a9a9a9;
+}
+
+.skills {
+  font-size: 1.4rem;
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.results {
+  border-left: 2px solid #a9a9a9;
+  padding-left: 15px;
+  line-height: 1.6;
+}
+
+p {
+  font-size: 12.5px;
+}
+
+.results-heading {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+a {
+  color: #121212;
+}
+
+.transcript {
+  color: #0277bd;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.ordinal {
+  position: relative;
+}
+
+.ordinal .suffix {
+  position: absolute;
+  top: -0.2rem;
+  right: -0.65rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+a {
+  cursor: pointer;
+}
+
+.udemy-logo {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.dark-mode {
+  color: #f8f8f8;
+}
+
+.dark-mode .header,
+.dark-mode div,
+.dark-mode p,
+.dark-mode h1,
+.dark-mode .sub-heading,
+.dark-mode h3,
+.dark-mode h2,
+.dark-mode span,
+.dark-mode a,
+.dark-mode .surname {
+  color: #f8f8f8;
+}
+
+.dark-mode .sub-heading.grey {
+  color: #a9a9a9;
+}
+
+.dark-mode .transcript {
+  color: #0277bd;
+}
