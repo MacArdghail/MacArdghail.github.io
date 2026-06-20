@@ -169,3 +169,77 @@
     margin-bottom: -2.5rem;
   }
 }
+
+
+
+/* Links Section */
+.links {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 0.35rem 1.5rem 0.25rem;
+  background: transparent;
+  z-index: 100;
+  pointer-events: none;
+  justify-content: space-between;
+}
+
+.copyright {
+  font-family: 'Scto Grotesk A', 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #888;
+  letter-spacing: -0.01em;
+  pointer-events: auto;
+}
+
+.links-group {
+  display: flex;
+  gap: 2rem;
+}
+
+.links-item {
+  font-family: 'PP Neue Montreal', 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+  position: relative;
+  pointer-events: auto;
+}
+
+.links-item::after {
+  content: '\00a0↗';
+  font-size: 0.75em;
+  font-weight: 400;
+  display: inline-block;
+  transform: translateY(-0.05em);
+}
+
+.links-item:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .links {
+    padding: 0.35rem 1.5rem 0.25rem;
+    flex-wrap: wrap;
+  }
+  
+  .links-group {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .copyright {
+    font-size: 0.75rem;
+  }
+  
+  .links-item {
+    font-size: 0.75rem;
+  }
+}

@@ -35,7 +35,7 @@
         [class.work-list--active]="selectedProject() || selectedPost() || selectedPiano()"
         (mouseenter)="isLocked.set(false)"
       >
-        <span class="work-group-label">Projects</span>
+        <span class="work-group-label">/Projects</span>
         @for (project of projects; track project.slug) {
           <button
             class="work-item"
@@ -49,7 +49,7 @@
           </button>
         }
 
-        <span class="work-group-label work-group-label--spaced">Piano</span>
+        <span class="work-group-label work-group-label--spaced">/Piano</span>
         @for (piano of pianoPerformances; track piano.slug) {
           <button
             class="work-item"
@@ -63,7 +63,7 @@
           </button>
         }
 
-        <span class="work-group-label work-group-label--spaced">Writing</span>
+        <span class="work-group-label work-group-label--spaced">/Writing</span>
         @for (post of posts; track post.slug) {
           <button
             class="work-item"
@@ -187,3 +187,22 @@
     </div>
   </section>
 </div>
+
+<!-- Links outside the main content area -->
+<section class="links">
+  <span class="copyright">© MacArdghail</span>
+  <div class="links-group">
+    <a href="https://www.linkedin.com/in/fionnmcardle213/" target="_blank" rel="noopener noreferrer" class="links-item">
+      LinkedIn
+    </a>
+    <a href="https://github.com/MacArdghail" target="_blank" rel="noopener noreferrer" class="links-item">
+      GitHub
+    </a>
+    <!-- <a href="mailto:" class="links-item">
+      Email
+    </a> -->
+    <!-- <a href="/cv.pdf" target="_blank" rel="noopener" class="links-item">
+      CV
+    </a> -->
+  </div>
+</section>
