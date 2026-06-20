@@ -20,4 +20,146 @@
       </li>
     </ol>
   </section>
+
+
+
+
+  <!-- Work (projects + piano + writing) -->
+  <section class="work">
+    <hr class="work-top-rule" />
+    <div class="work-grid">
+
+      <!-- Left: both lists stacked -->
+      <div
+        class="work-list"
+        [class.work-list--active]="selectedProject() || selectedPost() || selectedPiano()"
+        (mouseenter)="isLocked.set(false)"
+      >
+        <span class="work-group-label">Projects</span>
+        @for (project of projects; track project.slug) {
+          <button
+            class="work-item"
+            [class.work-item--active]="selectedProject()?.slug === project.slug"
+            (mouseenter)="hoverProject(project)"
+            (mouseleave)="clearHover()"
+            (click)="selectProject(project)"
+          >
+            <span class="work-item-index">[{{ pad(project.index) }}]</span>
+            <span class="work-item-title">{{ project.title }}</span>
+          </button>
+        }
+
+        <span class="work-group-label work-group-label--spaced">Piano</span>
+        @for (piano of pianoPerformances; track piano.slug) {
+          <button
+            class="work-item"
+            [class.work-item--active]="selectedPiano()?.slug === piano.slug"
+            (mouseenter)="hoverPiano(piano)"
+            (mouseleave)="clearHover()"
+            (click)="selectPiano(piano)"
+          >
+            <span class="work-item-index">[{{ pad(piano.index) }}]</span>
+            <span class="work-item-title">{{ piano.title }}</span>
+          </button>
+        }
+
+        <span class="work-group-label work-group-label--spaced">Writing</span>
+        @for (post of posts; track post.slug) {
+          <button
+            class="work-item"
+            [class.work-item--active]="selectedPost()?.slug === post.slug"
+            (mouseenter)="hoverPost(post)"
+            (mouseleave)="clearHover()"
+            (click)="selectPost(post)"
+          >
+            <span class="work-item-index">[{{ pad(post.index) }}]</span>
+            <span class="work-item-title">{{ post.title }}</span>
+          </button>
+        }
+      </div>
+
+      <!-- Center: image or video -->
+      <div class="work-image-wrap" #imageSection>
+        @if (selectedProject(); as p) {
+          @if (p.link) {
+            <a [href]="p.link" target="_blank" rel="noopener" class="work-image-link">
+              <img [src]="p.image" [alt]="p.title" class="work-image" />
+            </a>
+          } @else {
+            <div class="work-image-link">
+              <img [src]="p.image" [alt]="p.title" class="work-image" />
+            </div>
+          }
+        } @else if (selectedPost(); as p) {
+          <a [routerLink]="['/blog', p.slug]" class="work-image-link">
+            <img [src]="p.image" [alt]="p.title" class="work-image" />
+          </a>
+        } @else if (selectedPiano(); as p) {
+          <div class="work-video-wrapper">
+            <button 
+              (click)="playPianoVideo()" 
+              class="work-video-thumbnail-btn"
+              [class.work-video-thumbnail-btn--hidden]="pianoVideoPlaying()"
+            >
+              <img [src]="getYoutubeThumbnail(p.youtubeEmbedId)" [alt]="p.title" class="work-image work-image--video" />
+            </button>
+            <iframe
+              class="work-video"
+              [class.work-video--visible]="pianoVideoPlaying()"
+              [src]="getSafeYoutubeUrl(p.youtubeEmbedId)"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        }
+      </div>
+
+      <!-- Right: details -->
+      <div class="work-detail">
+        @if (selectedProject(); as p) {
+          <div class="work-detail-header">
+            @if (p.link) {
+              <a [href]="p.link" target="_blank" rel="noopener" class="work-detail-title work-detail-title--link">
+                {{ p.title }}
+              </a>
+            } @else {
+              <h3 class="work-detail-title">{{ p.title }}</h3>
+            }
+          </div>
+          <p class="work-detail-desc">{{ p.description }}</p>
+          <div class="work-detail-tags">
+            @for (tag of p.tags; track tag) {
+              <span class="work-detail-tag">{{ tag }}</span>
+            }
+          </div>
+        } @else if (selectedPost(); as p) {
+          <div class="work-detail-header">
+            <a [routerLink]="['/blog', p.slug]" class="work-detail-title work-detail-title--link">
+              {{ p.title }}
+            </a>
+          </div>
+          <p class="work-detail-desc">{{ p.description }}</p>
+          <div class="work-detail-tags">
+            @for (tag of p.tags; track tag) {
+              <span class="work-detail-tag">{{ tag }}</span>
+            }
+          </div>
+        } @else if (selectedPiano(); as p) {
+          <div class="work-detail-header">
+            <a [href]="p.youtubeUrl" target="_blank" rel="noopener" class="work-detail-title work-detail-title--link">
+              {{ p.title }}
+            </a>
+          </div>
+          <p class="work-detail-desc">{{ p.description }}</p>
+          <div class="work-detail-tags">
+            @for (tag of p.tags; track tag) {
+              <span class="work-detail-tag">{{ tag }}</span>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </section>
 </div>

@@ -7,7 +7,8 @@
 
   <!-- Time and date display -->
   <div class="top-right" [class.hidden]="theyLiveMode()">
-    <time class="current-time">{{ currentTime() }}</time>
+    <time class="current-time current-time-desktop">{{ currentTime() }}</time>
+    <time class="current-time current-time-mobile">{{ currentTimeMobile() }}</time>
   </div>
 
   <!-- Custom cursor with trail -->
