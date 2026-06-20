@@ -83,16 +83,34 @@
         @if (selectedProject(); as p) {
           @if (p.link) {
             <a [href]="p.link" target="_blank" rel="noopener" class="work-image-link">
-              <img [src]="p.image" [alt]="p.title" class="work-image" />
+              <img 
+                [src]="p.image" 
+                [alt]="p.title" 
+                class="work-image"
+                loading="eager"
+                fetchpriority="high"
+              />
             </a>
           } @else {
             <div class="work-image-link">
-              <img [src]="p.image" [alt]="p.title" class="work-image" />
+              <img 
+                [src]="p.image" 
+                [alt]="p.title" 
+                class="work-image"
+                loading="eager"
+                fetchpriority="high"
+              />
             </div>
           }
         } @else if (selectedPost(); as p) {
           <a [routerLink]="['/blog', p.slug]" class="work-image-link">
-            <img [src]="p.image" [alt]="p.title" class="work-image" />
+            <img 
+              [src]="p.image" 
+              [alt]="p.title" 
+              class="work-image"
+              loading="eager"
+              fetchpriority="high"
+            />
           </a>
         } @else if (selectedPiano(); as p) {
           <div class="work-video-wrapper">
@@ -101,7 +119,13 @@
               class="work-video-thumbnail-btn"
               [class.work-video-thumbnail-btn--hidden]="pianoVideoPlaying()"
             >
-              <img [src]="getYoutubeThumbnail(p.youtubeEmbedId)" [alt]="p.title" class="work-image work-image--video" />
+              <img 
+                [src]="getYoutubeThumbnail(p.youtubeEmbedId)" 
+                [alt]="p.title" 
+                class="work-image work-image--video"
+                loading="eager"
+                fetchpriority="high"
+              />
             </button>
             <iframe
               class="work-video"
