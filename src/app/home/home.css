@@ -85,8 +85,9 @@
   font-size: 0.85rem;
   font-weight: 500;
   color: #ccc;
-  padding-top: 0.1rem;
   grid-row: 1;
+  align-self: start;
+  line-height: 1.55;
 }
 
 .hero-definition-text {
@@ -131,6 +132,11 @@
   .hero-definition {
     grid-template-columns: 1.5rem 1fr;
     gap: 0 0.5rem;
+  }
+  
+  .hero-definition::before {
+    font-size: 0.7rem;
+    line-height: 1.4;
   }
   
   .hero-definition-text {

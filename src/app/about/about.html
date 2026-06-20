@@ -1,0 +1,32 @@
+<div class="about">
+  <a routerLink="/" class="about-back">← back</a>
+  <div class="about-content">
+      <header class="about-header">
+        <h1 class="about-name">About</h1>
+      </header>
+      <hr class="about-rule" />
+      <section class="about-section">
+        <h2 class="about-section-title">Bio</h2>
+        <img 
+          src="/macardghail.jpg" 
+          alt="MacArdghail" 
+          class="about-portrait"
+          draggable="false"
+          (contextmenu)="$event.preventDefault()"
+          oncontextmenu="return false;"
+        />
+        <p class="about-body">
+          I'm a software engineer and partial luddite<sup class="about-footnote-ref"><a (click)="scrollToFootnote()">1</a></sup> 
+          based in Ireland, recently graduated with a degree in computer science. Right now, I'm working as an Angular developer.
+          I like the piano and I'm trying to learn Spanish.
+        I'm <span class="about-age">{{ age() }}</span> years old.
+        </p>
+      </section>
+  </div>
+  
+  <div class="about-footnotes">
+    <p class="about-footnote" id="footnote-1">
+      <sup>1</sup> I don't have any social media account. BuT I SEe a LiNK tO YoUr LInkEDiN - shush
+    </p>
+  </div>
+</div>
