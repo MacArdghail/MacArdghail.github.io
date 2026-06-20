@@ -222,3 +222,41 @@
   width: 100%;
   height: auto;
 }
+
+
+
+/* Live date and time */
+.top-right {
+  position: fixed;
+  top: calc(20px + 1.5rem);
+  right: calc(20px + 2rem);
+  z-index: 100;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.top-right.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.current-time {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #888;
+  letter-spacing: 0.02em;
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .top-right {
+    top: calc(20px + 0.75rem);
+    right: calc(20px + 1rem);
+  }
+  
+  .current-time {
+    font-size: 0.65rem;
+  }
+}

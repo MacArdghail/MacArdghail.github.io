@@ -12,6 +12,7 @@ export class App {
   theyLiveMode = signal(false);
   theyLiveMessage = signal('HIRE ME');
   isGlitching = signal(false);
+
   cursorX = signal(0);
   cursorY = signal(0);
   cursorTrail = signal<{x: number, y: number, id: number}[]>([]);
@@ -23,6 +24,10 @@ export class App {
   private currentY = 0;
   private trailPoints: {x: number, y: number, id: number}[] = [];
   private trailIdCounter = 0;
+
+  currentTime = signal('');
+  private timeInterval: any;
+
   
   private messages = [
     'HIRE ME',
@@ -33,7 +38,36 @@ export class App {
 
   ngOnInit() {
     this.animate();
+    this.updateTime();
+    this.timeInterval = setInterval(() => this.updateTime(), 1000);
   }
+
+  private updateTime() {
+    const now = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    };
+    
+    // Format: DD/MM/YYYY, HH:MM:SS
+    const formatter = new Intl.DateTimeFormat(undefined, options);
+    const parts = formatter.formatToParts(now);
+    
+    const day = parts.find(p => p.type === 'day')?.value || '';
+    const month = parts.find(p => p.type === 'month')?.value || '';
+    const year = parts.find(p => p.type === 'year')?.value || '';
+    const hour = parts.find(p => p.type === 'hour')?.value || '';
+    const minute = parts.find(p => p.type === 'minute')?.value || '';
+    const second = parts.find(p => p.type === 'second')?.value || '';
+    
+    this.currentTime.set(`${day}/${month}/${year}, ${hour}:${minute}:${second}`);
+  }
+
 
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
@@ -119,6 +153,9 @@ export class App {
   ngOnDestroy() {
     if (this.messageInterval) {
       clearInterval(this.messageInterval);
+    }
+    if (this.timeInterval) {
+      clearInterval(this.timeInterval);
     }
     if (this.animationFrame) {
       cancelAnimationFrame(this.animationFrame);
