@@ -1,0 +1,135 @@
+.home {
+  padding: 2rem 3rem 5rem;
+  box-sizing: border-box;
+}
+
+
+
+/* Hero (Dictionary Definition Style) */
+.hero {
+  max-width: 520px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-name {
+  font-family: 'Signifier', 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #1a1a1a;
+  padding-bottom: 4px;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.hero-phonetic {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
+
+.hero-about-link {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  border: 1px solid #888;
+  padding: 0.25rem 0.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  line-height: 1;
+  display: inline-block;
+  background: transparent;
+}
+
+.hero-about-link:hover {
+  color: #fff;
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.hero-divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 0.75rem 0 0.75rem;
+}
+
+.hero-definitions {
+  list-style: none;
+  counter-reset: def;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-definition {
+  counter-increment: def;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0 0.65rem;
+}
+
+.hero-definition::before {
+  content: counter(def, decimal-leading-zero) ".";
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ccc;
+  padding-top: 0.1rem;
+  grid-row: 1;
+}
+
+.hero-definition-text {
+  font-family: 'Scto Grotesk A', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.hero-mention {
+  font-family: 'PP Neue Montreal', 'Scto Grotesk A', sans-serif;
+  font-weight: 400;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.hero-mention:hover {
+  opacity: 0.6;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+  .home {
+    padding: 1.5rem 1.5rem 4rem;
+  }
+  
+  .hero {
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-name {
+    font-size: 2rem;
+  }
+  
+  .hero-definitions {
+    gap: 0.875rem;
+  }
+  
+  .hero-definition-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+}

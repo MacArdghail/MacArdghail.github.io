@@ -76,6 +76,14 @@
   z-index: 100;
 }
 
+/* Closer to border on mobile */
+@media (max-width: 768px) {
+  .bottom-right {
+    bottom: calc(20px + 0.75rem);
+    right: calc(20px + 0.75rem);
+  }
+}
+
 .glasses-btn {
   width: 42px;
   height: 42px;
@@ -112,6 +120,7 @@
   bottom: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* Use dynamic viewport height for mobile */
   z-index: 300;
   background: #b7b7b7;
   display: flex;
@@ -195,6 +204,14 @@
   padding: 8px;
   transition: transform 0.15s ease;
   z-index: 301;
+}
+
+/* Closer to border on mobile */
+@media (max-width: 768px) {
+  .they-live-glasses-btn {
+    bottom: calc(20px + 0.75rem);
+    right: calc(20px + 0.75rem);
+  }
 }
 
 .they-live-glasses-btn:hover {
