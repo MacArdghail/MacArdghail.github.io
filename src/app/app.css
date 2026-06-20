@@ -33,11 +33,19 @@
   pointer-events: none;
 }
 
+/* Hide cursor tracker on touch devices (mobile/tablet) */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-canvas {
+    display: none;
+  }
+}
+
 
 
 /* THEY LIVE....WE SLEEP */
 .shell {
   height: 100vh;
+  height: 100dvh; /* Use dynamic viewport height for mobile */
   position: relative;
   transition: background 0.1s;
   padding: 20px;
