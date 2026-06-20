@@ -26,6 +26,7 @@ export class App {
   private trailIdCounter = 0;
 
   currentTime = signal('');
+  currentTimeMobile = signal('');
   private timeInterval: any;
 
   
@@ -66,6 +67,7 @@ export class App {
     const second = parts.find(p => p.type === 'second')?.value || '';
     
     this.currentTime.set(`${day}/${month}/${year}, ${hour}:${minute}:${second}`);
+    this.currentTimeMobile.set(`${day}/${month}/${year.slice(-2)}, ${hour}:${minute}`);
   }
 
 

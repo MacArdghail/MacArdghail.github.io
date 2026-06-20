@@ -249,6 +249,10 @@
   display: block;
 }
 
+.current-time-mobile {
+  display: none;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
   .top-right {
@@ -258,5 +262,13 @@
   
   .current-time {
     font-size: 0.65rem;
+  }
+
+  .current-time-desktop {
+    display: none;
+  }
+
+  .current-time-mobile {
+    display: block;
   }
 }
