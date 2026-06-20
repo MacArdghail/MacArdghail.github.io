@@ -1,0 +1,29 @@
+<div class="shell">                    <!-- Outer container with 20px padding -->
+  <div class="border-frame">           <!-- border/frame line -->
+    <div class="page-content">
+      <router-outlet />  
+    </div>
+  </div>
+</div>
+
+<!-- Custom cursor with trail -->
+<svg class="cursor-canvas" width="100%" height="100%">
+  <!-- Draw trail line through all points -->
+  @if (cursorTrail().length > 0) {
+    <path
+      [attr.d]="getTrailPath()"
+      stroke="#1a1a1a"
+      stroke-width="2"
+      fill="none"
+      opacity="0.6"
+    />
+  }
+    
+  <!-- Cursor dot -->
+  <circle
+    [attr.cx]="cursorX()"
+    [attr.cy]="cursorY()"
+    r="6"
+    fill="#1a1a1a"
+  />
+</svg>

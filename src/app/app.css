@@ -1,0 +1,29 @@
+/* The border/frame line */
+.border-frame {
+  border: 1px solid #666;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+}
+
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+
+
+/* Custom cursor follower */
+.cursor-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+  transition: opacity 0.2s;
+}
