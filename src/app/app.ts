@@ -9,9 +9,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.css'
 })
 export class App {
+  theyLiveMode = signal(false);
+  theyLiveMessage = signal('HIRE ME');
+  isGlitching = signal(false);
   cursorX = signal(0);
   cursorY = signal(0);
   cursorTrail = signal<{x: number, y: number, id: number}[]>([]);
+  private messageInterval: any;
   private animationFrame: any;
   private mouseX = 0;
   private mouseY = 0;
@@ -19,6 +23,13 @@ export class App {
   private currentY = 0;
   private trailPoints: {x: number, y: number, id: number}[] = [];
   private trailIdCounter = 0;
+  
+  private messages = [
+    'HIRE ME',
+    'LINKEDIN',
+    'GITHUB',
+  ];
+  private currentIndex = 0;
 
   ngOnInit() {
     this.animate();
@@ -61,13 +72,44 @@ export class App {
     this.animationFrame = requestAnimationFrame(this.animate);
   }
 
+  toggleTheyLive() {
+    this.theyLiveMode.update((v) => !v);
+    
+    if (this.theyLiveMode()) {
+      // Start rotating messages with glitch transitions
+      this.currentIndex = 0;
+      this.theyLiveMessage.set(this.messages[0]);
+      this.messageInterval = setInterval(() => {
+        // Trigger glitch effect
+        this.isGlitching.set(true);
+        
+        // Change message during glitch
+        setTimeout(() => {
+          this.currentIndex = (this.currentIndex + 1) % this.messages.length;
+          this.theyLiveMessage.set(this.messages[this.currentIndex]);
+        }, 200);
+        
+        // End glitch effect
+        setTimeout(() => {
+          this.isGlitching.set(false);
+        }, 400);
+      }, 5000);
+    } else {
+      // Stop rotating messages
+      if (this.messageInterval) {
+        clearInterval(this.messageInterval);
+      }
+      this.isGlitching.set(false);
+    }
+  }
+
   getTrailPath(): string {
     const trail = this.cursorTrail();
     if (trail.length < 1) return '';
-    
+
     // Start from the oldest trail point and connect to the current cursor position
     let path = 'M ' + trail.map(p => `${p.x},${p.y}`).join(' L ');
-    
+
     // Always end at the current cursor dot position
     path += ` L ${this.cursorX()},${this.cursorY()}`;
     
@@ -75,6 +117,9 @@ export class App {
   }
 
   ngOnDestroy() {
+    if (this.messageInterval) {
+      clearInterval(this.messageInterval);
+    }
     if (this.animationFrame) {
       cancelAnimationFrame(this.animationFrame);
     }

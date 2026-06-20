@@ -27,3 +27,173 @@
   z-index: 10000;
   transition: opacity 0.2s;
 }
+
+.cursor-canvas.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+/* THEY LIVE....WE SLEEP */
+.shell {
+  height: 100vh;
+  position: relative;
+  transition: background 0.1s;
+  padding: 20px;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+.shell.they-live-mode {
+  padding: 0;
+  overflow: hidden;
+  background: #b7b7b7;
+  filter: contrast(1.15) brightness(0.95);
+}
+
+.shell.they-live-mode .border-frame {
+  border: 12px solid #2b2b2b;
+  box-sizing: border-box;
+}
+
+.shell.they-live-mode .page-content {
+  height: 100%;
+}
+
+.bottom-right {
+  position: fixed;
+  bottom: calc(20px + 2rem);
+  right: calc(20px + 2rem);
+  z-index: 100;
+}
+
+.glasses-btn {
+  width: 42px;
+  height: 42px;
+  background: #000;
+  border: 3px solid #fff;
+  outline: 2px solid #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: transform 0.15s ease;
+}
+
+.glasses-btn:hover {
+  transform: scale(1.08);
+}
+
+.glasses-btn:active {
+  transform: scale(0.95);
+}
+
+.glasses-btn svg {
+  width: 100%;
+  height: auto;
+}
+
+/* THEY LIVE screen overlay */
+.they-live-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 300;
+  background: #b7b7b7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  border: 20px solid #2b2b2b;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.they-live-screen.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.they-live-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  max-width: 100%;
+  width: 100%;
+}
+
+.they-live-word {
+  font-family: 'Arial Black', 'Impact', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #2b2b2b;
+  animation: flicker 4s infinite;
+  font-size: clamp(2rem, 12vw, 12rem);
+  line-height: 1.1;
+  white-space: nowrap;
+  max-width: 95%;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.they-live-word.glitch-transition {
+  animation: glitch-clip 0.4s steps(4);
+}
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.4; }
+  97% { opacity: 1; }
+  98% { opacity: 0.2; }
+  99% { opacity: 1; }
+}
+
+@keyframes glitch-clip {
+  0% { clip-path: inset(40% 0 61% 0); transform: translate(0); }
+  20% { clip-path: inset(92% 0 1% 0); transform: translate(-5px); }
+  40% { clip-path: inset(43% 0 1% 0); transform: translate(5px); }
+  60% { clip-path: inset(25% 0 58% 0); transform: translate(-5px); }
+  80% { clip-path: inset(54% 0 7% 0); transform: translate(5px); }
+  100% { clip-path: inset(58% 0 43% 0); transform: translate(0); }
+}
+
+/* Glasses button to remove THEY LIVE mode */
+.they-live-glasses-btn {
+  position: fixed;
+  bottom: calc(20px + 2rem);
+  right: calc(20px + 2rem);
+  width: 42px;
+  height: 42px;
+  background: #fff;
+  border: 3px solid #2b2b2b;
+  outline: 2px solid #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: transform 0.15s ease;
+  z-index: 301;
+}
+
+.they-live-glasses-btn:hover {
+  transform: scale(1.1);
+}
+
+.they-live-glasses-btn svg {
+  width: 100%;
+  height: auto;
+}
